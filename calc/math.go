@@ -1,6 +1,9 @@
 package calc
 
-func Add(a, b int) (result int) {
-	result = a + b
-	return
+func Add(ary ...int) int {
+	sum := 0
+	for _, value := range ary {
+		sum = sum + value
+	}
+	return sum
 }
