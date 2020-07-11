@@ -1,9 +1,16 @@
 package calc
 
-func Add(ary ...int) int {
+import "errors"
+
+func Add(ary ...int) (error, int) {
 	sum := 0
-	for _, value := range ary {
-		sum = sum + value
+
+	if len(ary) < 2 {
+		return errors.New("Provide more than 2 number"), sum
+	} else {
+		for _, value := range ary {
+			sum = sum + value
+		}
+		return nil, sum
 	}
-	return sum
 }
